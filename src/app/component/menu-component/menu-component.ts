@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AtletaComponent } from '../atleta-component/atleta-component';
-
+import { RouterLink } from '@angular/router';
+ 
 @Component({
-  selector: 'app-menu-component',
-  imports: [],
+selector: 'app-menu-component',
+  imports: [RouterLink],
   templateUrl: './menu-component.html',
   styleUrl: './menu-component.css',
 })

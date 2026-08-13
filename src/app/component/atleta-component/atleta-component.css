@@ -1,3 +1,30 @@
+#div-form{
+    width: 1000px;
+    min-height: 650px;
+    margin: 20px auto;
+    padding: 25px;
+    color: var(--cor-secundaria);
+}
+
+h2{
+    text-transform: uppercase;
+    color: var(--cor-botao1);
+    padding-bottom: 35px;
+}
+
+label{
+    display: block;
+    padding: 15px 0px;
+    text-transform: uppercase;
+    letter-spacing: 5px
+}
+
+input{
+    height: 35px;
+    padding: 10px ;
+    font-size: 14px;
+}
+
 input[type=radio]{
     width: 25px;
     height: 25px;
@@ -20,6 +47,12 @@ input[type=radio]{
     justify-content: center;
 }
 
+
+h2{
+ text-transform: uppercase;
+color: rgb(55, 55, 100);
+
+}
 button{
     width: 200px;
     height: 35px;
