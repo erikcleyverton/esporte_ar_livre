@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AtletaComponent } from '../atleta-component/atleta-component';
 
 @Component({
   selector: 'app-menu-component',

@@ -1,14 +1,26 @@
+#cabecalho, #logo, #menu-ul {
+    display: flex;
+    align-items: center;
+}
+
+#logo, #menu-ul {
+    height: 100%;
+    color: var(--branca);
+    justify-content: center;
+}
+
+
 #cabecalho {
-    background-color: var(--cor-secundaria);
+    background-color: #8eec63
     width: 1000px;
-    height: 100px;
+    height: 150px;
     margin: 20px auto;
     padding: 15px;
     justify-content: space-between;
 }
 
 #logo {
-    
+
     width: 180px;
 }
 
