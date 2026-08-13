@@ -7,11 +7,11 @@ export const routes: Routes = [
     
     {
       path:'',
-      redirecto:"/home"
-      pathMath:'full'
+      redirectTo:"/home",
+      pathMatch:'full',
 
 
-    }
+    },
 
 
     
