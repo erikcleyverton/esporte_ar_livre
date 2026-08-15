@@ -1,11 +1,11 @@
 export class Pessoa {
-    id?: number;
-    nome: string = '';
-    cpf: string = ''; 
-    sexo: string = '';
-    cep: string = '';  
-    ruaLogadouro: string = ''; 
-    bairro: string = '';
-    cidade: string = '';
-    uf: string = '';
-  }
+   id: number = 0
+   nome: string = ''
+   cpf: number = 0
+   sexo: string = ''
+   cep: number = 0
+   ruaLogradouro: string = ''
+   bairro: string = ''
+   cidade: string = ''
+   uf: string = ''
+}

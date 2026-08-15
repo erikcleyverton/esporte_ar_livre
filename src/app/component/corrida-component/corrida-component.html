@@ -1,0 +1,21 @@
+<div id="div-corrida">
+    <h2>Cadastro de corrida</h2>
+    <form id="form-corrida">
+
+      <label for="corrida">Corrida</label> 
+      <input type="text" name="corrida" [(ngModel)]="corrida" id="corrida" class="input01" required maxlength="80" placeholder="Descrição corrida">
+  
+      <label for="data-corrida">Data</label> 
+      <input type="date" name="data" [(ngModel)]="dataCorrida" id="data_corrida" class="input02" required>
+      
+      <label>Distância</label> 
+      <input type="radio" name="distancia" id="dist_5km" class="BtnSelecao" value="5km" [(ngModel)]="distancia"><label for="dist_5km">5km</label> 
+      
+      <div>
+        <input type="radio" name="distancia" id="dist_10km" class="BtnSelecao" value="10km" [(ngModel)]="distancia"><label for="dist_10km">10km</label>
+        <input type="radio" name="distancia" id="dist_20km" class="BtnSelecao" value="20km" [(ngModel)]="distancia"><label for="dist_20km">20km</label>
+      </div> 
+   
+      <button type="button" id="BtnAdd" (click)="exibeDados()">Cadastrar Corrida</button>
+    </form>
+</div>

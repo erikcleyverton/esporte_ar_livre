@@ -1,0 +1,133 @@
+
+   :root {
+    --cor-fundo-container: #ffffff;
+    --cor-texto: #333333;
+    --cor-botao1: #4052ec;      
+    --cor-botao1-hover: #2f3ec0;
+    --cor-botao2: #6c757d;      
+    --cor-botao2-hover: #5a6268;
+    --cor-branca: #ffffff;
+    --cor-borda: #cccccc;
+  }
+  
+  
+  #div-corrida {
+    width: 100%;
+    max-width: 900px;
+    min-height: 500px;
+    margin: 30px auto;
+    padding: 35px;
+    background-color: var(--cor-fundo-container);
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  #div-corrida h2 {
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  label {
+    display: block;
+    padding: 12px 0 6px 0;
+    font-size: 0.85rem;
+    color: var(--cor-texto);
+    font-weight: 600;
+  }
+  
+  
+  input[type="text"],
+  input[type="date"] {
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus {
+    border-color: var(--cor-botao1);
+  }
+  
+  .input01 {
+    width: 100%;
+    max-width: 650px;
+  }
+  
+  .input02 {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  
+  #form-corrida div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--cor-botao1); 
+  }
+  
+  
+  #form-corrida div label {
+    display: inline;
+    padding: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  
+
+  button {
+    min-width: 180px;
+    height: 42px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 20px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  #BtnAdd {
+    background-color: var(--cor-botao1);
+    color: var(--cor-branca);
+  }
+  
+  #BtnAdd:hover {
+    background-color: var(--cor-botao1-hover);
+  }
+  
+  #btnLimpar {
+    margin-left: 10px;
+    background-color: var(--cor-botao2);
+    color: var(--cor-branca);
+  }
+  
+  #btnLimpar:hover {
+    background-color: var(--cor-botao2-hover);
+  }

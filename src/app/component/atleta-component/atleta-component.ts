@@ -11,14 +11,14 @@ import { Pessoa } from '../../models/pessoa';
 })
 export class AtletaComponent {
  
-  nome: string = '';
-  cpf: string = '';
-  sexo: string = '';
-  cep: string = '';
-  ruaLogradouro: string = '';
-  bairro: string = '';
-  cidade: string = '';
-  uf: string = '';
+  nome = ''
+  cpf = 0
+  sexo = ''
+  cep = 0 
+  ruaLogradouro = ''
+  bairro = ''
+  cidade = ''
+  uf= ''
 
 
   constructor(private atletaService: AtletaService) {}
@@ -41,11 +41,28 @@ export class AtletaComponent {
     pessoaAtleta.cpf = this.cpf;
     pessoaAtleta.sexo = this.sexo;
     pessoaAtleta.cep = this.cep;
-    pessoaAtleta.ruaLogadouro = this.ruaLogradouro;
+    pessoaAtleta.ruaLogradouro = this.ruaLogradouro;
     pessoaAtleta.bairro = this.bairro;
     pessoaAtleta.cidade = this.cidade;
     pessoaAtleta.uf = this.uf;
 
     this.atletaService.adicionar(pessoaAtleta);
+
+    this.atletaService.listar()
+    this.limparAtributos()
   }
-} 
+
+limparAtributos(){
+  this.nome = ''
+  this.cpf = 0
+  this.sexo = ''
+  this.cep = 0
+  this.ruaLogradouro = ''
+  this.bairro = ''
+  this.cidade = ''
+  this.uf = ''
+
+}
+
+
+}
