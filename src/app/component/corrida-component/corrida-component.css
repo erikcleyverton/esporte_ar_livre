@@ -51,12 +51,17 @@
     border-radius: 4px;
     box-sizing: border-box;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    
+ 
+    background-color: #f8fafc; 
   }
   
+
   input[type="text"]:focus,
   input[type="date"]:focus {
     border-color: var(--cor-botao1);
+    background-color: #ffffff; 
   }
   
   .input01 {
@@ -130,4 +135,10 @@
   
   #btnLimpar:hover {
     background-color: var(--cor-botao2-hover);
+  }
+
+  body {
+    background-color: #f4f6f9; 
+    margin: 0;
+    padding: 20px;
   }

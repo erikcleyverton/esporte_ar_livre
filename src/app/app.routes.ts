@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './component/home-component/home-component';
 import { AtletaComponent } from './component/atleta-component/atleta-component';
 import { CorridaComponent } from './component/corrida-component/corrida-component';
+import { DisponiveisComponent } from './component/disponiveis-component/disponiveis-component';
+import { AtletaListaComponent } from './component/atleta-lista-component/atleta-lista-component';
 
 export const routes: Routes = [
     
@@ -27,5 +29,20 @@ export const routes: Routes = [
     component:CorridaComponent
 
 
-    }
+    },
+    
+    {
+    path: "disponiveis-component",
+    component: DisponiveisComponent
+     
+   },   
+
+   {
+    path:"listaatleta",
+    component: AtletaListaComponent
+   },
+
+
+
+
 ];

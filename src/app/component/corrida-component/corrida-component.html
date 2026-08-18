@@ -9,12 +9,12 @@
       <input type="date" name="data" [(ngModel)]="dataCorrida" id="data_corrida" class="input02" required>
       
       <label>Distância</label> 
-      <input type="radio" name="distancia" id="dist_5km" class="BtnSelecao" value="5km" [(ngModel)]="distancia"><label for="dist_5km">5km</label> 
-      
+     
       <div>
         <input type="radio" name="distancia" id="dist_10km" class="BtnSelecao" value="10km" [(ngModel)]="distancia"><label for="dist_10km">10km</label>
         <input type="radio" name="distancia" id="dist_20km" class="BtnSelecao" value="20km" [(ngModel)]="distancia"><label for="dist_20km">20km</label>
-      </div> 
+        <input type="radio" name="distancia" id="dist_30km" class="BtnSelecao" value="30km" [(ngModel)]="distancia"><label for="dist_30km">30km</label>
+    </div> 
    
       <button type="button" id="BtnAdd" (click)="exibeDados()">Cadastrar Corrida</button>
     </form>
