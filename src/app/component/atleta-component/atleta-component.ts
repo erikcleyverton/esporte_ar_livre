@@ -1,6 +1,6 @@
-import { Component, ChangeDetectorRef } from '@angular/core'; 
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core'; 
 import { FormsModule } from '@angular/forms'; 
-import { ActivatedRoute } from '@angular/router'; 
+import { ActivatedRoute, Router } from '@angular/router'; 
 import { AtletaService } from '../../service/atleta-service';
 import { Atleta } from '../../models/atleta';
 
@@ -10,7 +10,7 @@ import { Atleta } from '../../models/atleta';
   templateUrl: './atleta-component.html',
   styleUrl: './atleta-component.css'
 })
-export class AtletaComponent {
+export class AtletaComponent implements OnInit {
 
   id = 0
   nome = ''
@@ -28,7 +28,8 @@ export class AtletaComponent {
   // DECLARAÇÃO DO CONSTRUTOR  
   constructor(
     private atletaService: AtletaService, 
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
+    private router: Router, 
     private cdr: ChangeDetectorRef
   ) { }
 
@@ -70,7 +71,7 @@ export class AtletaComponent {
 
   enviaDadosAtleta() {
     const pessoaAtleta = new Atleta()
-    pessoaAtleta.nome = this.nome
+    pessoaAtleta.nome = this.nome 
     pessoaAtleta.cpf = this.cpf
     pessoaAtleta.sexo = this.sexo
     pessoaAtleta.cep = this.cep
@@ -80,31 +81,34 @@ export class AtletaComponent {
     pessoaAtleta.uf = this.uf
 
     if (!this.editar) {
+      // CADASTRAR NOVO ATLETA
       this.atletaService.adicionarAtleta(pessoaAtleta)
         .subscribe({
           next: (resposta) => {
-            console.log(resposta)
+            console.log("Atleta cadastrado com sucesso: ", resposta)
+            this.limparAtributos()
+            this.router.navigate(['/listaatleta']) // Redireciona para a lista
           },
           error: (msgErro) => {
             console.log("Erro ao cadastrar o atleta ", msgErro)
           }
         })
     } else {
+      // ATUALIZAR ATLETA EXISTENTE
       pessoaAtleta.id = this.idAtleta
       
       this.atletaService.alterarAtleta(pessoaAtleta)
         .subscribe({
           next: (resposta) => {
-            console.log(pessoaAtleta)
-            console.log(resposta)
+            console.log("Atleta alterado com sucesso: ", resposta)
+            this.limparAtributos()
+            this.router.navigate(['/listaatleta']) // Redireciona para a lista
           },
           error: (msgErro) => {
             console.log("Erro ao alterar o atleta ", msgErro)
           }
         })
     }
-
-    this.limparAtributos()
   }
 
   listaAtleta(idAtleta: number) {
@@ -131,81 +135,3 @@ export class AtletaComponent {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /*
-  nome = ''
-  cpf = 0
-  sexo = ''
-  cep = 0 
-  ruaLogradouro = ''
-  bairro = ''
-  cidade = ''
-  uf= ''
-
-
-  constructor(private atletaService: AtletaService) {}
-
-  exibeDados() {
-    console.log(
-      this.nome,
-      this.cpf,
-      this.sexo,
-      this.ruaLogradouro,
-      this.bairro,
-      this.cidade,
-      this.uf
-    );
-  }
-
-  salvarAtleta() {
-    const pessoaAtleta = new Pessoa();
-    pessoaAtleta.nome = this.nome;
-    pessoaAtleta.cpf = this.cpf;
-    pessoaAtleta.sexo = this.sexo;
-    pessoaAtleta.cep = this.cep;
-    pessoaAtleta.ruaLogradouro = this.ruaLogradouro;
-    pessoaAtleta.bairro = this.bairro;
-    pessoaAtleta.cidade = this.cidade;
-    pessoaAtleta.uf = this.uf;
-
-    this.atletaService.adicionar(pessoaAtleta);
-
-    this.atletaService.listar()
-    this.limparAtributos()
-  }
-
-limparAtributos(){
-  this.nome = ''
-  this.cpf = 0
-  this.sexo = ''
-  this.cep = 0
-  this.ruaLogradouro = ''
-  this.bairro = ''
-  this.cidade = ''
-  this.uf = ''
-
-}
-
-} 
-*/

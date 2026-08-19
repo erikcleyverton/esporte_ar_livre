@@ -6,43 +6,36 @@ import { DisponiveisComponent } from './component/disponiveis-component/disponiv
 import { AtletaListaComponent } from './component/atleta-lista-component/atleta-lista-component';
 
 export const routes: Routes = [
-    
-    {
-      path:'',
-      redirectTo:"/home",
-      pathMatch:'full',
+  {
+    path: '',
+    redirectTo: "home",
+    pathMatch: 'full',
+  },
+  {
+    path: "home",
+    component: HomeComponent
+  },
+  {
+    path: "cadastroatleta",
+    component: AtletaComponent
+  },
+  
 
-
-    },
-    
-    {
-        path:"home",
-        component:HomeComponent
-    },
-    {
-        path:"cadastroatleta",
-        component:AtletaComponent
-    },
-
-    {
+  {
+    path: "cadastroatleta/:id",
+    component: AtletaComponent
+  },
+  {
     path: "corrida-component",
-    component:CorridaComponent
-
-
-    },
-    
-    {
+    component: CorridaComponent
+  },
+  {
     path: "disponiveis-component",
     component: DisponiveisComponent
-     
-   },   
-
-   {
-    path:"listaatleta",
+  },
+  
+  {
+    path: "listaatleta",
     component: AtletaListaComponent
-   },
-
-
-
-
+  },
 ];

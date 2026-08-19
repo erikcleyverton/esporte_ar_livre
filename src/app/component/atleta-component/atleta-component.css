@@ -1,73 +1,108 @@
-#div-form{
-    width: 1000px;
-    min-height: 650px;
-    margin: 20px auto;
-    padding: 25px;
-    color: var(--cor-secundaria);
-}
-
-h2{
-    text-transform: uppercase;
-    color: var(--cor-botao1);
-    padding-bottom: 35px;
-}
-
-label{
-    display: block;
-    padding: 15px 0px;
-    text-transform: uppercase;
-    letter-spacing: 5px
-}
-
-input{
-    height: 35px;
-    padding: 10px ;
-    font-size: 14px;
-}
-
-input[type=radio]{
-    width: 25px;
-    height: 25px;
-    margin: 0px 10px;
-}
-
-.input01{
-    width: 650px;
-}
-
-.input02{
-    width: 350px;
-}
-
-#div-btns{
+/* Card Container (Igual ao Cadastro de Corrida e Corridas Disponíveis) */
+#div-form {
+    max-width: 800px;
     width: 100%;
-    height: 180px;
+    margin: 40px auto;
+    padding: 35px 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+/* Título */
+h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #111827;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+/* Rótulos */
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    letter-spacing: normal; /* Remove o espaçamento exagerado */
+}
+
+/* Inputs de Texto */
+input[type="text"] {
+    width: 100%;
+    height: 42px;
+    padding: 8px 14px;
+    font-size: 14px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+input[type="text"]:focus {
+    background-color: #ffffff;
+    border-color: #84cc16; /* Cor verde de destaque */
+}
+
+/* Opções de Radio (Sexo) */
+.radio-group {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 15px;
+    margin-top: 8px;
+    margin-bottom: 15px;
 }
 
-
-h2{
- text-transform: uppercase;
-color: rgb(55, 55, 100);
-
-}
-button{
-    width: 200px;
-    height: 35px;
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #84cc16; /* Deixa o rádio verde no padrão */
     cursor: pointer;
+}
+
+/* Padrões de Largura dos Inputs */
+.input01 {
+    width: 100%;
+}
+
+.input02 {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Área de Botões */
+#div-btns {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+button {
+    height: 42px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 700;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.2s;
 }
 
-#btnAdd{
-    margin-right: 10px;
-    background-color: var(--cor-botao1);
-    color: var(--branca);
+button:hover {
+    opacity: 0.9;
 }
 
-#btnLimpar{
-    margin-left: 10px;
-    background-color: var(--cor-botao2);
-    color: var(--branca);
+#BtnAdd {
+    background-color: #33ea33; 
+    color: #ffffff;
+}
+
+#BtnLimpar {
+    background-color: #e2e8f0;
+    color: #475569;
 }
