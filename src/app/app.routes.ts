@@ -29,6 +29,12 @@ export const routes: Routes = [
     path: "corrida-component",
     component: CorridaComponent
   },
+
+  {
+    path: "alterarcorrida/:id",
+    component: CorridaComponent
+  },
+
   {
     path: "disponiveis-component",
     component: DisponiveisComponent
