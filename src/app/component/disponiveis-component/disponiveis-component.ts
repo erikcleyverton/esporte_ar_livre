@@ -58,7 +58,7 @@ export class DisponiveisComponent {
 
   carregandoDadosForm(ObjCorrida: Corrida){
 
-    this.router.navigate(["/alteracorrida", ObjCorrida.id])
+    this.router.navigate(["/alterarcorrida", ObjCorrida.id])
     
   }
 
