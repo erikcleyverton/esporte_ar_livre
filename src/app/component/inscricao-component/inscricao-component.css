@@ -1,147 +1,153 @@
 :host {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f1f5f9;
-    padding: 40px 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  #div-inscrição {
-    background-color: #ffffff;
-    width: 100%;
-    max-width: 680px;
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  }
-  
-  #div-inscrição h2 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 24px;
-  }
-  
-  .form-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr; 
-    gap: 16px;
-  }
-  
-  /* Configuração geral de rótulos e campos */
-  label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: #475569;
-    margin-bottom: 6px;
-  }
-  
-  input[type="text"], select {
-    width: 100%;
-    height: 42px;
-    padding: 0 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #334155;
-    outline: none;
-    background-color: #fff;
-    box-sizing: border-box;
-  }
-  
-  input[type="text"]:focus, select:focus {
-    border-color: #3b82f6;
-  }
-  
-  .input-readonly {
-    background-color: #f8fafc !important;
-    color: #64748b !important;
-  }
-  
-  /* Radio buttons (Distância da Prova) */
-  .radio-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    height: 42px;
-  }
-  
-  .radio-group label {
-    font-weight: 400;
-    color: #334155;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 0;
-  }
-  
-  /* Mapeamento das suas classes de layout */
-  .field-group { grid-column: 1; }
-  .buscar_cpf { grid-column: 2; }
-  .corrida_escolhida { grid-column: 1; }
-  .distancia { grid-column: 2; }
-  .tamanho_camisa { grid-column: 1; }
-  .categoria { grid-column: 2; }
-  
-  /* Caixa do Valor da Inscrição */
-  .valor {
-    grid-column: 1 / -1; /* Ocupa a largura inteira */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-top: 8px;
-  }
-  
-  .valor span {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f172a;
-  }
-  
-  .preco {
-    font-size: 18px;
-    color: #16a34a;
-  }
-  
-  /* Checkbox dos Termos */
-  .termos {
-    grid-column: 1 / -1;
-    margin-top: 4px;
-  }
-  
-  .termos label {
-    font-weight: 400;
-    font-size: 13px;
-    color: #475569;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-  }
-  
-  /* Botão Verde */
-  .btn-finalizar {
-    grid-column: 1 / -1;
-    background-color: #38a169;
-    color: white;
-    border: none;
-    height: 46px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: background-color 0.2s;
-  }
-  
-  .btn-finalizar:hover {
-    background-color: #2f855a;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#div-inscrição {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  padding: 36px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+#div-inscrição h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+}
+
+/* Rótulos e Inputs */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+input[type="text"], select {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: #90e995;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-readonly {
+  background-color: #f1f5f9 !important;
+  color: #64748b !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Radio Buttons */
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+}
+
+.radio-group label {
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+/* Disposição das colunas */
+.field-group { grid-column: 1; }
+.buscar_cpf { grid-column: 2; }
+.corrida_escolhida { grid-column: 1; }
+.distancia { grid-column: 2; }
+.tamanho_camisa { grid-column: 1; }
+.categoria { grid-column: 2; }
+
+/* Box de Valor */
+.valor {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 6px;
+}
+
+.valor span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.preco {
+  font-size: 20px;
+  color: #16a34a;
+  font-weight: 700;
+}
+
+/* Checkbox Termos */
+.termos {
+  grid-column: 1 / -1;
+}
+
+.termos label {
+  font-weight: 400;
+  font-size: 13px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Botão Azul Destacado */
+.btn-finalizar {
+  grid-column: 1 / -1;
+  background-color: #53bb4a;
+  color: #ffffff;
+  border: none;
+  height: 48px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background-color 0.2s;
+}
+
+.btn-finalizar:hover {
+  background-color: #1dd826;
+}
