@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './atleta-lista-component.html',
   styleUrl: './atleta-lista-component.css',
 })
-export class AtletaListaComponent implements OnInit {
+export class AtletaListaComponent {
 
   // DECLARAÇÃO ARRAY DO TIPO PESSOA USANDO SIGNALS
   listaAtletas = signal<Atleta[]>([]);
@@ -22,20 +22,23 @@ export class AtletaListaComponent implements OnInit {
     this.listarAtletas();
   }
 
-  // LISTAR OS ATLETAS
-  listarAtletas() {
-    this.http.listarAtletas()
-      .subscribe({
-        next: (dados) => {
-          // Atualiza a Signal de atletas ordenando em ordem alfabética pelo nome
-          this.listaAtletas.set([...dados].sort((a, b) => a.nome.localeCompare(b.nome)));
-        },
-        error: (msgErro) => {
-          console.log("Erro ao listar os atletas: ", msgErro);
-        }
-      });
-  }
-
+ // LISTAR OS ATLETAS
+ listarAtletas() {
+  this.http.listarAtletas()
+    .subscribe({
+      next: (dados) => {
+        this.listaAtletas.set(
+          dados.map(a => ({
+            ...a,
+            idade: a.data_nascimento ? String(new Date().getFullYear() - new Date(a.data_nascimento).getFullYear()) : '0'
+          })).sort((a, b) => a.nome.localeCompare(b.nome))
+        );
+      },
+      error: (msgErro) => {
+        console.log("Erro ao listar os atletas: ", msgErro);
+      }
+    });
+}
   // EXCLUIR ATLETA
   excluirAtleta(atleta: Atleta) {
     if (confirm(`Deseja excluir ${atleta.nome} da competição? `)) {

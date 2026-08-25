@@ -11,18 +11,10 @@
     
       <div class="buscar_cpf">
         <label>Ou Buscar por CPF</label>
-        <input 
-          type="text" 
-          [(ngModel)]="inscricao().cpfBusca" 
-          name="cpfBusca" 
-          placeholder="000.000.000-0" 
-        />
-      </div>
+        <input  type="text" [(ngModel)]="inscricao().cpfBusca" name="cpfBusca" placeholder="000.000.000-0" /> </div>
   
       <div class="corrida_escolhida">
-        <label>Corrida Escolhida</label>
-        <select [value]="corridaSelecionada()?.id" disabled name="corridaId">
-          <option [value]="corridaSelecionada()?.id">
+        <label>Corrida Escolhida</label> <select [value]="corridaSelecionada()?.id" disabled name="corridaId"><option [value]="corridaSelecionada()?.id">
             {{ corridaSelecionada()?.descricao_corrida || 'Carregando corrida...' }} 
             {{ corridaSelecionada()?.data_corrida ? '(' + corridaSelecionada()?.data_corrida + ')' : '' }}
           </option>

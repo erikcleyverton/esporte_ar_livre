@@ -21,6 +21,7 @@ export class AtletaComponent implements OnInit {
   bairro = ''
   cidade = ''
   uf = ''
+  data_nascimento = ''
 
   editar = false
   idAtleta = 0
@@ -35,7 +36,7 @@ export class AtletaComponent implements OnInit {
 
   // DECLARAÇÃO DE FUNÇÕES
   exibeDados() {
-    console.log(this.nome, this.cpf, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf)
+    console.log(this.nome, this.cpf, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf, this.data_nascimento)
   }
 
   ngOnInit() {
@@ -60,6 +61,7 @@ export class AtletaComponent implements OnInit {
           this.bairro = objAtleta.bairro
           this.cidade = objAtleta.cidade
           this.uf = objAtleta.uf
+          this.data_nascimento = objAtleta.data_nascimento
 
           this.cdr.detectChanges()
         }, 
@@ -79,6 +81,8 @@ export class AtletaComponent implements OnInit {
     pessoaAtleta.bairro = this.bairro
     pessoaAtleta.cidade = this.cidade
     pessoaAtleta.uf = this.uf
+    pessoaAtleta.data_nascimento =  this.data_nascimento
+
 
     if (!this.editar) {
       // CADASTRAR NOVO ATLETA
@@ -132,6 +136,7 @@ export class AtletaComponent implements OnInit {
     this.bairro = ''
     this.cidade = ''
     this.uf = ''
+    this.data_nascimento = ''
   }
 
 }
