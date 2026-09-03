@@ -105,7 +105,9 @@ describe('AtletaListaComponent', () => {
       "uf": "SE",
       "data_nascimento": "1980-02-12",
       "idade": "46",
-      "id": 3
+      "id": 3,
+      "altura": 10,
+      "peso": 32
     };
 
     service.alterarAtleta(atleta).subscribe(result => {

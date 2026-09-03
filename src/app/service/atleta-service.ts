@@ -13,42 +13,42 @@ export class AtletaService {
 
   //ADICIONAR NA API
   adicionarAtleta(atleta: Atleta): Observable<Atleta> {
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
+    const urlApi = `http://127.0.0.1:8000/pessoa/`
 
     return this.http.post<Atleta>(urlApi, atleta)
   }
 
   //LISTAR ATLETAS NA API
   listarAtletas(): Observable<Atleta[]> {
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
+    const urlApi = `http://127.0.0.1:8000/pessoa/`
 
     return this.http.get<Atleta[]>(urlApi)
   }
 
   //LISTAR ATLETA
   listarAtleta(idAtleta: number):Observable<Atleta>{
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`
+    const urlApi = `http://127.0.0.1:8000/pessoa/`
 
     return this.http.get<Atleta>(urlApi)
   }
 
   //EXCLUIR NA API
   exluirAtleta(atleta: Atleta): Observable<Atleta> {
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
+    const urlApi = `http://127.0.0.1:8000/pessoa/`
 
     return this.http.delete<Atleta>(urlApi)
   }
 
   //ALTERAR NA API
   alterarAtleta(atleta: Atleta):Observable<Atleta>{
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`
+    const urlApi = `http://127.0.0.1:8000/pessoa/`
 
     return this.http.put<Atleta>(urlApi, atleta)
   }
 
 
 //CALCULAR A IDADE
-//aaaa-MMM-dd - 2026-08-24
+
 calcularIdade(data_nascimento: string): number {
   const dt_nascimento = new Date(data_nascimento + "T00:00:00")
   const hoje = new Date()

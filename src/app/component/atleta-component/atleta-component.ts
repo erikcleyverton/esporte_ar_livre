@@ -6,27 +6,29 @@ import { Atleta } from '../../models/atleta';
 
 @Component({
   selector: 'app-atleta-component',
+  standalone: true,
   imports: [FormsModule],
   templateUrl: './atleta-component.html',
   styleUrl: './atleta-component.css'
 })
 export class AtletaComponent implements OnInit {
 
-  id = 0
-  nome = ''
-  cpf = 0
-  sexo = ''
-  cep = 0
-  rua_logradouro = ''
-  bairro = ''
-  cidade = ''
-  uf = ''
-  data_nascimento = ''
+  id = 0;
+  nome = '';
+  cpf = 0;
+  sexo = '';
+  cep = 0;
+  rua_logradouro = '';
+  bairro = '';
+  cidade = '';
+  uf = '';
+  data_nascimento = '';
+  altura = 0;
+  peso = 0;
 
-  editar = false
-  idAtleta = 0
+  editar = false;
+  idAtleta = 0;
 
-  // DECLARAÇÃO DO CONSTRUTOR  
   constructor(
     private atletaService: AtletaService, 
     private route: ActivatedRoute,
@@ -34,109 +36,105 @@ export class AtletaComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) { }
 
-  // DECLARAÇÃO DE FUNÇÕES
-  exibeDados() {
-    console.log(this.nome, this.cpf, this.sexo, this.rua_logradouro, this.bairro, this.cidade, this.uf, this.data_nascimento)
-  }
-
   ngOnInit() {
-    this.idAtleta = Number(this.route.snapshot.paramMap.get('id'))
+    
+    this.route.params.subscribe(params => {
+      const id = Number(params['id']);
 
-    if (this.idAtleta > 0) {
-      this.editar = true
-      this.carregaCampo(this.idAtleta)
-    }
+      if (id && id > 0) {
+        this.idAtleta = id;
+        this.editar = true;
+        this.carregaCampo(this.idAtleta); 
+      } else {
+        this.editar = false;
+        this.limparAtributos();
+      }
+    });
   }
 
   carregaCampo(idAtleta: number) {
     this.atletaService.listarAtleta(idAtleta)
       .subscribe({
         next: (objAtleta) => {
-          this.id = objAtleta.id
-          this.nome = objAtleta.nome
-          this.cpf = objAtleta.cpf
-          this.sexo = objAtleta.sexo
-          this.cep = objAtleta.cep
-          this.rua_logradouro = objAtleta.rua_logradouro
-          this.bairro = objAtleta.bairro
-          this.cidade = objAtleta.cidade
-          this.uf = objAtleta.uf
-          this.data_nascimento = objAtleta.data_nascimento
+          this.id = objAtleta.id;
+          this.nome = objAtleta.nome;
+          this.cpf = objAtleta.cpf;
+          this.sexo = objAtleta.sexo;
+          this.cep = objAtleta.cep;
+          this.rua_logradouro = objAtleta.rua_logradouro;
+          this.bairro = objAtleta.bairro;
+          this.cidade = objAtleta.cidade;
+          this.uf = objAtleta.uf;
+          this.data_nascimento = objAtleta.data_nascimento;
+          this.altura = objAtleta.altura;
+          this.peso = objAtleta.peso;
 
-          this.cdr.detectChanges()
+          this.cdr.detectChanges();
         }, 
         error: (msgErro) => {
-          console.log("Erro ao Listar o atleta ", msgErro)
+          console.log("Erro ao Listar o atleta", msgErro);
         }
-      })
+      });
   }
 
   enviaDadosAtleta() {
-    const pessoaAtleta = new Atleta()
-    pessoaAtleta.nome = this.nome 
-    pessoaAtleta.cpf = this.cpf
-    pessoaAtleta.sexo = this.sexo
-    pessoaAtleta.cep = this.cep
-    pessoaAtleta.rua_logradouro = this.rua_logradouro
-    pessoaAtleta.bairro = this.bairro
-    pessoaAtleta.cidade = this.cidade
-    pessoaAtleta.uf = this.uf
-    pessoaAtleta.data_nascimento =  this.data_nascimento
-
+    const pessoaAtleta = new Atleta();
+    pessoaAtleta.id = this.idAtleta > 0 ? this.idAtleta : this.id;
+    pessoaAtleta.nome = this.nome;
+    pessoaAtleta.cpf = this.cpf;
+    pessoaAtleta.sexo = this.sexo;
+    pessoaAtleta.cep = this.cep;
+    pessoaAtleta.rua_logradouro = this.rua_logradouro;
+    pessoaAtleta.bairro = this.bairro;
+    pessoaAtleta.cidade = this.cidade;
+    pessoaAtleta.uf = this.uf;
+    pessoaAtleta.data_nascimento = this.data_nascimento;
+    pessoaAtleta.peso = this.peso;
+    pessoaAtleta.altura = this.altura;
 
     if (!this.editar) {
       // CADASTRAR NOVO ATLETA
       this.atletaService.adicionarAtleta(pessoaAtleta)
         .subscribe({
           next: (resposta) => {
-            console.log("Atleta cadastrado com sucesso: ", resposta)
-            this.limparAtributos()
-            this.router.navigate(['/listaatleta']) // Redireciona para a lista
+            console.log("Atleta cadastrado com sucesso: ", resposta);
+            this.limparAtributos();
+            this.router.navigate(['/listaatleta']);
           },
           error: (msgErro) => {
-            console.log("Erro ao cadastrar o atleta ", msgErro)
+            console.log("Erro ao cadastrar o atleta ", msgErro);
           }
-        })
+        });
     } else {
       // ATUALIZAR ATLETA EXISTENTE
-      pessoaAtleta.id = this.idAtleta
-      
       this.atletaService.alterarAtleta(pessoaAtleta)
         .subscribe({
           next: (resposta) => {
-            console.log("Atleta alterado com sucesso: ", resposta)
-            this.limparAtributos()
-            this.router.navigate(['/listaatleta']) // Redireciona para a lista
+            console.log("Atleta alterado com sucesso: ", resposta);
+            this.limparAtributos();
+            this.router.navigate(['/listaatleta']);
           },
           error: (msgErro) => {
-            console.log("Erro ao alterar o atleta ", msgErro)
+            console.log("Erro ao alterar o atleta ", msgErro);
           }
-        })
+        });
     }
   }
 
-  listaAtleta(idAtleta: number) {
-    this.atletaService.listarAtleta(idAtleta)
-      .subscribe({
-        next: (dados) => {
-          console.table(dados)
-        },
-        error: (msgErro) => {
-          console.log("Erro ao listar atletas ", msgErro)
-        }
-      })
-  }
-
   limparAtributos() {
-    this.nome = ''
-    this.cpf = 0
-    this.sexo = ''
-    this.cep = 0
-    this.rua_logradouro = ''
-    this.bairro = ''
-    this.cidade = ''
-    this.uf = ''
-    this.data_nascimento = ''
+    this.id = 0;
+    this.idAtleta = 0;
+    this.editar = false;
+    this.nome = '';
+    this.cpf = 0;
+    this.sexo = '';
+    this.cep = 0;
+    this.rua_logradouro = '';
+    this.bairro = '';
+    this.cidade = '';
+    this.uf = '';
+    this.data_nascimento = '';
+    this.peso = 0;
+    this.altura = 0;
   }
-
 }
