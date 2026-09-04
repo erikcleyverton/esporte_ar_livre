@@ -22,16 +22,24 @@ export class AtletaListaComponent {
     this.listarAtletas();
   }
 
- // LISTAR OS ATLETAS
+ // LISTAR OS ATLETAS (Calcula Idade, IMC e Classificação no Map)
  listarAtletas() {
   this.http.listarAtletas()
     .subscribe({
       next: (dados) => {
         this.listaAtletas.set(
-          dados.map(a => ({
-            ...a,
-            idade: a.data_nascimento ? String(new Date().getFullYear() - new Date(a.data_nascimento).getFullYear()) : '0'
-          })).sort((a, b) => a.nome.localeCompare(b.nome))
+          dados.map(a => {
+            // Garante altura em metros
+            const altMetros = a.altura > 3 ? a.altura / 100 : a.altura;
+            const calcImc = (a.peso > 0 && altMetros > 0) ? Number((a.peso / (altMetros * altMetros)).toFixed(2)) : 0;
+
+            return {
+              ...a,
+              idade: a.data_nascimento ? String(new Date().getFullYear() - new Date(a.data_nascimento).getFullYear()) : '0',
+              imc: calcImc,
+              classificacaoImc: this.http.classificarIMC(a.peso, a.altura)
+            };
+          }).sort((a, b) => a.nome.localeCompare(b.nome))
         );
       },
       error: (msgErro) => {
@@ -42,10 +50,10 @@ export class AtletaListaComponent {
   // EXCLUIR ATLETA
   excluirAtleta(atleta: Atleta) {
     if (confirm(`Deseja excluir ${atleta.nome} da competição? `)) {
-      this.http.exluirAtleta(atleta)
+      this.http.exluirAtleta(atleta.id)
         .subscribe({
           next: (dados) => {
-            // Remove o atleta excluído diretamente da Signal sem precisar recarregar a lista do servidor
+            // Remove o atleta excluído da Signal na tela
             this.listaAtletas.update(elem =>
               elem.filter(a => a.id !== atleta.id)
             );
@@ -59,8 +67,9 @@ export class AtletaListaComponent {
     }
   }
 
-  // ALTERAR DADOS
-  buscarPessoa(idAtleta: Atleta) {
+  /// ALTERAR DADOS
+  buscarPessoa(idAtleta: number) {
+    
     this.router.navigate(['/cadastroatleta', idAtleta]);
   }
 }

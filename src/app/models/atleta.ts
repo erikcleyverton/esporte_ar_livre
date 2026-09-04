@@ -12,4 +12,5 @@ export class Atleta {
    idade = '';
    altura = 0;
    peso = 0;
+   imc = 0;
  }
