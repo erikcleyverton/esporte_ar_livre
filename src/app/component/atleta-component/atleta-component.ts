@@ -25,6 +25,7 @@ export class AtletaComponent implements OnInit {
   data_nascimento = '';
   altura = 0;
   peso = 0;
+  classificacaoImc = ''
 
   editar = false;
   idAtleta = 0;

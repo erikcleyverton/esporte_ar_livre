@@ -16,9 +16,9 @@
           <td>{{ elem.descricao_corrida }}</td>
           <td>{{ elem.data_corrida }}</td>
           <td>
-            {{ elem.distancia5km ? '5km' : '' }}
-            {{ elem.distancia10km ? (elem.distancia5km ? ', 10km' : '10km') : '' }}
-            {{ elem.distancia25km ? (elem.distancia5km || elem.distancia10km ? ', 25km' : '25km') : '' }}
+            {{ elem.distancia_5km ? '5km' : '' }}
+            {{ elem.distancia_10km ? (elem.distancia_5km ? ', 10km' : '10km') : '' }}
+            {{ elem.distancia_25km ? (elem.distancia_5km || elem.distancia_10km ? ', 25km' : '25km') : '' }}
           </td>
           <td>
             <div class="acoes">

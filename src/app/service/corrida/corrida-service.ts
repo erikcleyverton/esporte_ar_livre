@@ -11,31 +11,32 @@ export class CorridaService {
 
   // CORRIGIDO: Retorna o Observable direto para o componente fazer o .subscribe()
   salvarCorrida(corrida: Corrida): Observable<Corrida> {
-    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida`;
+    const urlApi = `http://127.0.0.1:8000/corrida/`
+
     return this.http.post<Corrida>(urlApi, corrida);
   }
 
   // LISTAR TODAS AS CORRIDAS
   listarCorridas(): Observable<Corrida[]> {
-    const urlAPI = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida`;
+    const urlAPI = `http://127.0.0.1:8000/corrida/`;
     return this.http.get<Corrida[]>(urlAPI);
   }
 
   // LISTAR UMA CORRIDA
   listarCorrida(idCorrida: number): Observable<Corrida> {
-    const urlAPI = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`;
+    const urlAPI = `http://127.0.0.1:8000/corrida/${idCorrida}/`;
     return this.http.get<Corrida>(urlAPI);
   }
 
   // EXCLUIR UMA CORRIDA
   excluirCorrida(idCorrida: number): Observable<Corrida> {
-    const urlAPI = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${idCorrida}`;
+    const urlAPI = `http://127.0.0.1:8000/corrida/${idCorrida}/`;
     return this.http.delete<Corrida>(urlAPI);
   }
 
   // ALTERAR CORRIDA
   alterarCorrida(corrida: Corrida): Observable<Corrida> {
-    const urlAPI = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/corrida/${corrida.id}`;
+    const urlAPI = `http://127.0.0.1:8000/corrida/${corrida.id}/`;
     return this.http.put<Corrida>(urlAPI, corrida);
   }
 }

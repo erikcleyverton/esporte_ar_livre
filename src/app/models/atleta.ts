@@ -13,4 +13,5 @@ export class Atleta {
    altura = 0;
    peso = 0;
    imc = 0;
+   classificacaoImc: string = ''
  }

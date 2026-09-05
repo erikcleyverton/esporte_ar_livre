@@ -5,7 +5,7 @@
         @for (elem of listaAtletas(); track elem.id) {
         <div class="item-atletas">
             <span class="dados-atleta">
-                {{elem.id}} - {{elem.nome}} - {{elem.cpf}} - {{elem.sexo}} - {{elem.cidade}} - {{elem.rua_logradouro}}- {{elem.uf}} - {{elem.altura}}M - {{elem.peso}}KG - {{elem.idade}} anos - {{elem.imc}} - IMC 
+                {{elem.id}} - {{elem.nome}} - {{elem.cpf}} - {{elem.sexo}} - {{elem.cidade}} - {{elem.rua_logradouro}}- {{elem.uf}} - {{elem.altura}}M - {{elem.peso}}KG - {{elem.idade}} anos - {{elem.imc}} - IMC - {{elem.classificacaoImc}}
             </span>
             <span class="links-lista">
                 <a class="lnk-editar" (click)="buscarPessoa(elem.id)"> Editar </a>
